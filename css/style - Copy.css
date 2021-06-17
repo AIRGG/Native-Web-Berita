@@ -1,0 +1,127 @@
+*{
+	font-family: calibri;
+}
+a{
+	text-decoration: none;
+}
+
+img,
+h1{
+	display: inline-block;
+	padding: 0 2px;
+	color:#00C1FF;
+}
+
+img{
+	float: left;
+}
+ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: ;
+	
+}
+header {
+	background-color: #000000;
+}
+
+li{
+	float: left;
+}
+
+li a {
+	display: block;
+	color: #FFFFFF;
+	text-align: center;
+	padding: 15px 25px;
+	text-decoration: none;	
+	
+}
+
+li a:hover {
+	background-color: #FF7700 ;
+	color: ;
+	transition: 1s;
+}
+
+li a:not(:hover){
+	background-color: ;
+	color: ;
+	transition: 1s;
+}
+
+ul p {
+	text-align: center;
+	color: #FFFFFF;
+}
+
+/*.grid-container {
+  display: grid;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}*/
+
+.grid-container {
+	display: grid;
+}
+
+.grid-container .item1{
+    display: grid;
+    grid-template-columns: auto auto;
+    height: 300px;
+}
+
+.grid-container > div {
+  background-color: #FFFFFF; 
+  text-align: center;
+  /*padding: 20px 0;*/
+  /*font-size: 30px;*/
+}
+
+.item1 {
+ /*grid-column: 1/span 3;
+ grid-row: 1/50;*/
+
+border: 1px solid black;
+}
+
+.item2{
+/*grid-column: 4;
+grid-row: 1/50;*/
+
+border: 1px solid black;
+}
+
+.pertama {
+	border: 1px solid;
+	margin: 10px 30px;
+	height: 21vh;
+}
+
+/* -- BATAS --*/
+
+.img-thumbnail img {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 190px;
+    height: auto;
+}
+.judul {
+	border: 1px solid;
+	text-align: left;
+	/*margin: 15px 20%;*/
+	padding-left: 33%;
+}
+
+.judul .title {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.judul .description {
+	font-size: 20px
+}

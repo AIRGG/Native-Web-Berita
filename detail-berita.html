@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Detail Berita - BETA RELEASE V.01</title>
+</head>
+<body>
+	<h1>erita Kita</h1>
+	<img src="img/Logo.png">
+	<header class="label">
+		<div class="container-atas">
+				<ul>
+					<li id="detailumum"><a href="index.html">Home</a></li>
+					<li id="detailbisnis"><a href="bisnis.html">Bisnis</a></li>
+					<li id="detailteknologi"><a href="teknologi.html">Teknologi</a></li>
+					<li id="detailkesehatan"><a href="kesehatan.html">Kesehatan</a></li>
+					<li id="detailolahraga"><a href="olahraga.html">Olahraga</a></li>
+					<li id="detailsains"><a href="sains.html">Sains</a></li>
+					<p>Halaman Detail Berita</p>
+				</ul>
+		</div>
+	</header>
+	<br>
+	<div class="container-detail">
+		<div class="imgdetail">
+			<img id="imgdetail" src="" alt="Image Not Found"><br> 
+		</div>
+		<div>
+			<label id="titledetail"></label>
+		</div>
+		<div style="margin-top: 50px;">
+			<label id="descdetail"></label>
+		</div>
+		<div style="margin-top: 100px;">
+			<label id="persondate"></label><br><br>
+			
+			<!-- SINI UBAH TOMBOL -->
+			<button class="btndetail" onclick="pindahEdit()">Edit Berita</button><br>
+		</div>
+	</div>
+
+	<div class="footer">
+		<label for="">Copyright &copy; 2021 Kelompok 2 | <a href="https://github.com/airgg" target="_blank">AIRGG</a>, HUMAN, #REFF</label>
+	</div>
+
+	<!-- [BATAS] JavaScript -->
+	<script src="js/jquery.js"></script>
+	<script src="data/datanya.json"></script>
+
+	<!-- Custom JS -->
+	<script src="js/main.js"></script>
+	<script>
+		const params = Object.fromEntries(new URLSearchParams(window.location.search).entries());
+		console.log(params, 'param')
+		let keynow = ''
+		switch (params.berita) {
+			case 'bisnis':
+				keynow = 'detailbisnis'
+				break;
+			case 'teknologi':
+				keynow = 'detailteknologi'
+				break;
+			case 'kesehatan':
+				keynow = 'detailkesehatan'
+				break;
+			case 'olahraga':
+				keynow = 'detailolahraga'
+				break;
+			case 'sains':
+				keynow = 'detailsains'
+				break;
+
+			default:
+				keynow = 'detailumum'
+				break;
+		}
+		$(`#${keynow}`).attr('class', 'active')
+		// setEditData(params.berita, params.idx)
+		formEdit('detail')
+		const pindahEdit = () => document.location.href = `edit-berita.html?berita=${params.berita}&idx=${params.idx}`
+	</script>
+</body>
+</html>

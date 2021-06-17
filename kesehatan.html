@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="keyword" content="">
+	<meta name="author" content="">
+	<meta http-equiv="refresh" content="">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Berita Kita - BETA RELEASE V.01</title>
+</head>
+<body>
+	<h1>erita Kita</h1>
+	<img src="img/Logo.png">
+	<header class="label">
+		<div class="container-atas">
+				<ul>
+					<!-- DISINI UBAH ABGAIN ACTIVENYA -->
+					<li><a href="index.html">Home</a></li>
+					<li><a href="bisnis.html">Bisnis</a></li>
+					<li><a href="teknologi.html">Teknologi</a></li>
+					<li class="active"><a href="kesehatan.html">Kesehatan</a></li>
+					<li><a href="olahraga.html">Olahraga</a></li>
+					<li><a href="sains.html">Sains</a></li>
+					<p>Halaman Kesehatan</p> <!-- DISINI UBAH -->
+				</ul>
+		</div>
+	</header>
+
+	<!--Grid-->
+	<div id='isikonten'></div>
+	<div class="footer">
+		<label for="">Copyright &copy; 2021 Kelompok 2 | <a href="https://github.com/airgg" target="_blank">AIRGG</a>, HUMAN, #REFF</label>
+	</div>
+	<!--Java Script-->
+	<script src="js/jquery.js"></script>
+	<script src="data/datanya.json"></script>
+
+	<!-- Custom JS -->
+	<script src="js/main.js"></script>
+	<script>
+		const key = 'kesehatan' // -> DISIN UBAH
+		
+		let isiberita = JSON.parse(getdata(key))
+		console.log(isiberita, 'isi')
+
+		let isihtml = ''
+
+		isiberita.articles.map((v, k)=>{
+			isihtml += `
+	<div class='container' style="margin-top: 10px;">
+		<div class="item-kiri" onclick="document.location.href='detail-berita.html?berita=${key}&idx=${k}'">
+			<div class="img-thumbnail">
+				<img src="${v.urlToImage || 'img/thumbnail-default.jpg'}" alt="Not FOund">
+			</div>
+			<div class="judul-thumbnail">
+				<label class="title">
+					<a href="detail-berita.html?berita=${key}&idx=${k}">${v.title}</a>
+				</label>
+				<label class="description">
+					<a href="detail-berita.html?berita=${key}&idx=${k}">
+						${v.description}
+					</a>
+				</label>
+			</div>
+		</div>
+		<div class="item-kanan">
+			<div class="img-thumbnail">
+				<img src="img/ad-placeholder-empty-without.png" alt="Not FOund">
+			</div>
+			<div class="judul-thumbnail">
+				<label class="title">
+					<a href="">-- Advertisment --</a>
+				</label>
+			</div>
+		</div>
+	</div>
+			`
+		})
+		$('#isikonten').html(isihtml)
+	</script>
+</body>
+</html>
