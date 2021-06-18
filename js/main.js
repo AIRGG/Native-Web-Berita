@@ -1,4 +1,4 @@
-
+let arrkey = ["umum","olahraga","sains","kesehatan","teknologi","bisnis"]
 if (!localStorage.getItem('databerita')){
 	const tmpdataberita = JSON.stringify({
 		'umum': JSON.stringify(dataidgenerals),
@@ -18,6 +18,11 @@ const getdata = apa => {
 	if (Object.keys(databerita).indexOf(apa) < 0) apa = 'umum'; // Tidak ditemukan, set ke general
 	datanow = databerita[apa];
 	return datanow
+}
+
+const potongStr = (strnya, berapa=50) => {
+	if(strnya.length < berapa) return strnya;
+	return `${strnya.slice(0, berapa)}...`
 }
 
 
