@@ -1,0 +1,62 @@
+<html>
+<head>
+	<title>Document</title>
+	<style>
+		label{
+			display: block; /* Pakai Display Block agar kedua Komponen Label dan Input itu Turun */
+		}
+		input {
+			display: block; /* Pakai Display Block agar kedua Komponen Label dan Input itu Turun */
+		}
+		.warnaMerah { /* Kalo class itu pake selector titik, dan class itu bisa dipakai dibanyak komponen html */
+			color: red; 
+		}
+		#warnaBiru { /* Kalo id itu pake selector pagar, dan id itu hanya bisa dipakai 1 kali di komponen html */
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+ 
+	<h1 id="warnaBiru">Form Feedback</h1> <!-- id warnaBiru sudah dipakai disini tidak akan bisa dipakai dibawah -->
+	<label class="warnaMerah">Nama</label> <!-- disini pemakaian class warnaMerah pertama -->
+	<input type="text" id="nama">
+	<label>Email</label>
+	<input type="email" id="email">
+	<label class="warnaMerah">Keterangan</label> <!-- class warnaMerah masih bisa dipakai meskipun sudah dipakai diatas -->
+	<input type="text" id="keterangan">
+	<button onclick="validasiDulu()">Kirim</button> <!-- komponen button punya atribut onclick, untuk memberi feedback, apa yang harus dilakukan ketika tombol ini di klik,. disini kita memanggil fungsi js yang bernama validasiDulu() -->
+
+	<script>
+		function validasiDulu () { // Ini fungsinya
+
+			// pertama kita ambil dulu komponen htmlnya yang ingin dijadikan validasi, lalu tampung di variable
+			// ingat yg sebelumnya, id pakai pagar( # ) klo class pakai titik( . )
+			// agar lebih mudah ketika mengambil komponen kita pakai document.querySelector saja, agar sama seperti permainan css
+			var txtnama = document.querySelector("#nama")
+			var txtemail = document.querySelector("#email")
+			var txtketerangan = document.querySelector("#keterangan")
+
+			// jangan lupa, ketika ingin mengecek, tambahkan .value agar nilai didalam komponen input dapat terambil
+			// setelah diambil kita bandingkan .value dengan petik 2 kosong( '' ) yg menandakan value didalam html input masih kosong
+			if(txtnama.value == ''){
+				alert('Nama Tidak boleh kosong!!') // jika value masih kosong akan masuk sini, dan menampilkan pesan
+				return // ini untuk mencegah agar kode dibawahnya tidak di eksekusi, jadi eksekusi program berenti disini
+			}
+
+			// yg bawah juga sama kaya yg atas
+			if(txtemail.value == ''){
+				alert('Email Tidak boleh kosong!!')
+				return
+			}
+			if(txtketerangan.value == ''){
+				alert('Keterangan Tidak boleh kosong!!')
+				return
+			}
+
+			// jika lolos semua validasi, atau semua komponen input sudah terisi, maka pesan ini akan tampil
+			alert('OKE SUDAH FIX')
+		}
+	</script>
+</body>
+</html>
